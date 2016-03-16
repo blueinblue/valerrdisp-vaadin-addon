@@ -7,7 +7,39 @@
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Validation Error Display Add-on - Root</name>
+	
+	 <organization>
+		<name>blueinblue</name>
+		<url>https://github.com/blueinblue/valerrdisp-vaadin-addon/</url>
+	</organization>
+    
+	<scm>
+		<url>git://github.com/blueinblue/valerrdisp-vaadin-addon.git</url>
+		<connection>scm:git:git://github.com/blueinblue/valerrdisp-vaadin-addon.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:/blueinblue/valerrdisp-vaadin-addon.git</developerConnection>
+		<tag>${project.artifactId}-${project.version}</tag>
+	</scm>
 
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/blueinblue/vaadin-valerrdisp-addon/issues</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<distributionManagement>
+		<repository>
+			<id>ssh-repository</id>
+			<url>${ssh-repository-url}</url>
+		</repository>
+	</distributionManagement>
+	
 	<modules>
 		<module>valerrdisp-addon</module>
 		<module>valerrdisp-demo</module>
@@ -35,5 +67,15 @@
 			</pluginRepositories>
 		</profile>
 	</profiles>
+	
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.10</version>
+			</extension>
+		</extensions>
+	</build>
 
 </project>
