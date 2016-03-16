@@ -1,5 +1,6 @@
 package org.vaadin.valerrdisp.demo;
 
+import java.io.*;
 import java.util.*;
 
 import javax.servlet.annotation.*;
@@ -96,7 +97,7 @@ public class DemoUI extends UI
     /**
      * Simple POJO that we'll edit in the various forms.
      */
-    public class Person {
+    public class Person implements Serializable {
     	// Constructors
     	public Person() {
     	}
