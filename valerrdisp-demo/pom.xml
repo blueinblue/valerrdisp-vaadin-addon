@@ -41,6 +41,13 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	
+	<distributionManagement>
+		<repository>
+			<id>ssh-repository</id>
+			<url>${ssh-repository-url}</url>
+		</repository>
+	</distributionManagement>
 
 	<repositories>
 		<repository>
@@ -112,6 +119,14 @@
 	</dependencies>
 
 	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.10</version>
+			</extension>
+		</extensions>
+		
 		<plugins>
 
 			<plugin>
