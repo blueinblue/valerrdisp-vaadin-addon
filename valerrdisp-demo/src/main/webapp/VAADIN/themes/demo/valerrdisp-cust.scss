@@ -1,0 +1,13 @@
+/* Customization for valerrdisp */
+
+@import "../../../VAADIN/addons/valerrdisp/valerrdisp.scss";
+
+@mixin valerrdisp-cust {
+	@include valerrdisp;
+	
+	/*
+	.err-wrap-container-div .msg-div {
+		color: green !important;
+	}
+	*/
+}

@@ -1,0 +1,147 @@
+@mixin valerrdisp {
+	/*
+	 * DIV Hierarchy:
+	 *
+	 *	err-form
+	 *		err-wrap-container-div
+	 *			input-div
+	 *			msg-div
+	 *				err-msg-wrapper
+	 *					div ("Invalid integer")
+	 *					div ("Some other validation error")
+	 *
+	 */
+	 
+	 // Properties shared by all err-wrap-container-div elements
+	.err-wrap-container-div, .err-wrap-container-div-right, .err-wrap-container-div-above, .err-wrap-container-div-below {
+		display: table;
+		font-family: FontAwesome;
+		
+		// Added to msg-div to hide validation error messages
+	  	.msg-div-hidden {
+			display: none;
+		}
+		
+		// Sets the font color of the error messages
+		.msg-div {
+			color: #ed473b !important;
+		}
+		
+		// Displays error-msg-wrapper to the right of the input by default - do not change this.
+		.err-msg-wrapper {
+			display: inline-block;
+		}
+		
+		// Defines how each invididual error message is displayed in relation to the other error messages
+		.err-msg-wrapper div {
+			// Use inline-block to display them next to one another, ie x Error Message 1  x Error Message 2
+			// display: inline-block;
+			
+			// Use table to display them on top of one another, like a single column table
+			display: table;
+			padding-top: 5px;
+		}
+		
+		// Defines the FontAwesome icon that appears before each error message, default is an X 
+		.err-msg-wrapper div:before {
+			content: "\f00d ";
+		}
+	}
+	
+	// Properties shared by all err-form elements
+	// err-form is applied to the container (VerticalLayout, FormLayout, etc) that contains all of the fields
+	.err-form, .err-form-right, .err-form-above, .err-form-below {
+	
+		// Hide the default Vaadin error indicator (red ! by default) in form layouts
+		.v-formlayout-error-indicator {
+			display: none;
+		}
+		
+		// Hide the default Vaadin error indicator (red ! by default) in non-form layouts
+		.v-errorindicator {
+			display: none !important;
+		}
+		
+		// Position the caption cell in the center of the text field
+		.v-formlayout-captioncell {
+			vertical-align: top;
+			padding-top: 5px;
+		}
+	}
+	
+	// Defines an err-form that by default displays error messages appear to the right of inputs
+	.err-form-right {
+		.err-wrap-container-div {
+			.input-div {
+				display: inline;
+			}
+			
+			.msg-div {
+				display: inline;
+				vertical-align: top;
+				padding-left: 5px;
+			}
+		}
+	}
+	
+	// Defines an err-form that by default displays error messages above the inputs
+	.err-form-above {
+		.err-wrap-container-div {
+			.input-div {
+				display: table-footer-group;
+			}
+			
+			.msg-div {
+				display: table-header-group;
+			}
+		}
+	}
+	
+	// Defines an err-form that by default displays error messages below the inputs
+	.err-form-below {
+		.err-wrap-container-div {
+			.input-div {
+				display: table-header-group;
+			}
+			
+			.msg-div {
+				display: table-footer-group;
+			}
+		}
+	}
+	
+	// Field level override that displays the error messages to the right of the input
+	.err-wrap-container-div-right {
+		.input-div {
+			display: inline;
+		}
+		
+		.msg-div {
+			display: inline;
+			vertical-align: top;
+			padding-left: 5px;
+		}
+	}
+	
+	// Field level override that displays the error messages above the input
+	.err-wrap-container-div-above {
+		.input-div {
+			display: table-footer-group;
+		}
+		
+		.msg-div {
+			display: table-header-group;
+		}
+	}
+	
+	// Field level override that displays the error messages below the input
+	.err-wrap-container-div-below {
+		.input-div {
+			display: table-header-group;
+		}
+		
+		.msg-div {
+			display: table-footer-group;
+		}
+	}
+}
