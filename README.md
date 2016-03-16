@@ -39,7 +39,8 @@ The Validation Error Display Add-on is maintained by <https://github.com/blueinb
 ## Getting started
 I **highly** recommened downloading the demo application from github and examining the DemoUI for a complete overview.
 
-**NOTE: I recently created a new project using the archetype vaadin-archetype-application and after adding the add-on dependency and compiling the Widgetset, the addons.scss undated successfully.  The procedure below may not be necessary - try simply adding the add-on dependency first and then check your addons.scss file in your theme folder.**
+**NOTE: I recently created a new project using the archetype vaadin-archetype-application and after adding the add-on dependency and compiling the Widgetset, the addons.scss updated successfully.  
+The procedure below may not be necessary - try simply adding the add-on dependency first and then check your addons.scss file in your theme folder to see if valerrdisp.scss was added.**
 
 The Validation Error Display Add-on comes packaged with a SASS stylesheet that's required for the add-on to function.  Unfortunately, Vaadin does not seem to be correctly processing SASS from add-ons 
 at this time, despite the documentation's claims to the otherwise.
