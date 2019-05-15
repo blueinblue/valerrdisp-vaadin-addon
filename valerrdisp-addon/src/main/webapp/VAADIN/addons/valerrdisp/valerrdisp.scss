@@ -15,8 +15,7 @@
 	 // Properties shared by all err-wrap-container-div elements
 	.err-wrap-container-div, .err-wrap-container-div-right, .err-wrap-container-div-above, .err-wrap-container-div-below {
 		display: table;
-		font-family: FontAwesome;
-		
+
 		// Added to msg-div to hide validation error messages
 	  	.msg-div-hidden {
 			display: none;
