@@ -1,5 +1,6 @@
 package org.vaadin.valerrdisp.client;
 
+import com.vaadin.client.ui.combobox.ComboBoxConnector;
 import org.vaadin.valerrdisp.*;
 
 import com.google.gwt.dom.client.*;
@@ -11,8 +12,12 @@ import com.vaadin.client.communication.StateChangeEvent.*;
 import com.vaadin.client.extensions.*;
 import com.vaadin.shared.ui.*;
 
+import java.util.logging.Logger;
+
 @Connect(ValidationErrorDisplay.class)
 public class ValidationErrorDisplayConnector extends AbstractExtensionConnector {
+
+	private static final Logger LOGGER = Logger.getLogger(ValidationErrorDisplayConnector.class.getName());
 // Constructors
 	
 // Public Methods
@@ -78,7 +83,6 @@ public class ValidationErrorDisplayConnector extends AbstractExtensionConnector 
 			errDiv.addClassName("msg-div-hidden");
 			
 			String errMsg = ((ComponentConnector)stateChangeEvent.getConnector()).getState().errorMessage;
-			
 			if(errMsg != null && errMsg.trim().length() > 0) {
 				DivElement div = wrapErrorsInDiv(errMsg);
 				errDiv.appendChild(div);
@@ -155,25 +159,8 @@ public class ValidationErrorDisplayConnector extends AbstractExtensionConnector 
 			DivElement div = Document.get().createDivElement();
 			div.addClassName("err-msg-wrapper");
 			
-			// Remove outer div by extracting children divs and setting them as the content to div
-			HTML html = new HTML(errContainerDiv);
-			
-			String childrenDivStr = "";
-			if(html.getElement() != null && html.getElement().getFirstChildElement() != null) {
-				String innerHtml = html.getElement().getFirstChildElement().getInnerHTML();
-				innerHtml = (innerHtml == null) ? "" : innerHtml.trim();
-				
-				// If there's only one error, then we need to wrap it in a DIV; if there are multiple errors, then they are already wrapped in DIVs
-				boolean isMultipleChildren = innerHtml.startsWith("<div");
-				
-				if(isMultipleChildren) {
-					childrenDivStr = innerHtml;
-				}
-				else {
-					childrenDivStr = "<div>" + innerHtml + "</div>";
-				}
-			}
-			
+			String childrenDivStr = "<div>" + errContainerDiv + "</div>";
+
 			div.setInnerHTML(childrenDivStr);
 			
 			return div;
