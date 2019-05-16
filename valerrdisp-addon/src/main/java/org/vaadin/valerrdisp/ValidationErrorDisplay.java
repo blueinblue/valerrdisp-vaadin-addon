@@ -6,11 +6,11 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 
 /**
- * Extends an AbstractField to display its validation error.  Placement of the error message is controlled through css class names.
+ * Extends an AbstractComponent to display its validation error.  Placement of the error message is controlled through css class names.
  */
 public class ValidationErrorDisplay extends AbstractExtension {
 // Constructors
-	protected ValidationErrorDisplay(AbstractField<?> field, ErrorMessagePlacement errorMessagePlacement) {
+	protected ValidationErrorDisplay(AbstractComponent field, ErrorMessagePlacement errorMessagePlacement) {
 		// Set state before calling extend
 		getState().errorMessagePlacement = errorMessagePlacement;
 		
@@ -25,7 +25,7 @@ public class ValidationErrorDisplay extends AbstractExtension {
 	 * @param errorMessagePlacement
 	 * @return
 	 */
-	public static ValidationErrorDisplay displayFor(AbstractField<?> field, ErrorMessagePlacement errorMessagePlacement) {
+	public static ValidationErrorDisplay displayFor(AbstractComponent field, ErrorMessagePlacement errorMessagePlacement) {
 		return new ValidationErrorDisplay(field, errorMessagePlacement);
 	}
 	
@@ -39,7 +39,7 @@ public class ValidationErrorDisplay extends AbstractExtension {
      * @param field
      * @return
      */
-    public static ValidationErrorDisplay displayFor(AbstractField<?> field) {
+    public static ValidationErrorDisplay displayFor(AbstractComponent field) {
         return displayFor(field, ErrorMessagePlacement.DEFAULT);
     }
 
