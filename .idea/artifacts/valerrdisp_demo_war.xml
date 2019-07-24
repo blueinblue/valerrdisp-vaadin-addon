@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="valerrdisp-demo:war">
+    <output-path>$PROJECT_DIR$/valerrdisp-demo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>valerrdisp-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="valerrdisp-demo-1.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="valerrdisp-demo:war exploded" />
+    </root>
+  </artifact>
+</component>
